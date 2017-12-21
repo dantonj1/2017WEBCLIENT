@@ -1,0 +1,68 @@
+<div class="settings-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 col-xs-12">
+
+        <h1 class="text-xs-center">EDIT YOUR PROFILE</h1>
+
+        <list-errors [errors]="errors"></list-errors>
+
+        <form [formGroup]="settingsForm" (ngSubmit)="submitForm()">
+          <fieldset [disabled]="isSubmitting">
+
+            <fieldset class="form-group">
+              <input class="form-control"
+                type="text"
+                placeholder="YOUR IMAGE URL"
+                formControlName="image" />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input class="form-control form-control-lg"
+                type="text"
+                placeholder="USERNAME"
+                formControlName="username" />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <textarea class="form-control form-control-lg"
+                rows="8"
+                placeholder="ABOUT YOU..."
+                formControlName="bio">
+              </textarea>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input class="form-control form-control-lg"
+                type="email"
+                placeholder="EMAIL"
+                formControlName="email" />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input class="form-control form-control-lg"
+                type="password"
+                placeholder="NEW PASSWORD"
+                formControlName="password" />
+            </fieldset>
+
+            <button class="btn btn-lg btn-primary pull-xs-right"
+              type="submit">
+              UPDATE PROFILE
+            </button>
+
+          </fieldset>
+        </form>
+
+        <!-- Line break for logout button -->
+        <hr />
+
+        <button class="btn btn-outline-danger"
+          (click)="logout()">
+          LOGOUT
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>

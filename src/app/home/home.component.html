@@ -1,0 +1,50 @@
+<div class="home-page">
+
+  <div class="banner" *showAuthed="false">
+    <div class="container">
+      <h1 class="logo-font">SWOLE&WHOLE</h1>
+      <p>A FITNESS TRACKER</p>
+    </div>
+  </div>
+
+  <div class="container page">
+    <div class="row">
+
+      <div class="col-md-9">
+        <div class="feed-toggle">
+          <ul class="nav nav-pills outline-active">
+            <li class="nav-item">
+              <a class="nav-link"
+                 [ngClass]="{'active': listConfig.type === 'feed'}"
+                 (click)="setListTo('feed')">
+                 YOUR PROGRESS
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                 [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}"
+                 (click)="setListTo('all')">
+                 ALL PROGRESS
+              </a>
+            </li>
+            <li class="nav-item" [hidden]="!listConfig.filters.tag">
+              <a class="nav-link active">
+                 {{ listConfig.filters.tag }}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <article-list [limit]="10" [config]="listConfig"></article-list>
+      </div>
+
+      <div class="col-md-3">
+        <div class="sidebar">
+          <p>A BETTER YOU, A BETTER LIFE<br /> <br />
+          SWOLE&WHOLE IS A FITNESS TRACKER TO HELP YOU REACH YOUR GOALS</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
